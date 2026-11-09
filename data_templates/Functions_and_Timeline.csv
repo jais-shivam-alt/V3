@@ -1,0 +1,6 @@
+3. Wedding Ceremonies & Functions,,,,,,,,,,,,,,,,,,
+Order,Function ID,Ceremony Title (en),Ceremony Title (hi),Day Label (en),Day Label (hi),Date (YYYY-MM-DD),Date Label (en),Date Label (hi),Day of Week (en),Day of Week (hi),Start Time (en),Start Time (hi),Start ISO (IST),Venue Name (en),Venue Name (hi),Prominent Note (e.g. Dinner & Ashirwad),Muhurat Countdown? (YES/NO),Icon Motif (lotus/music/mandap/palace)
+1,haldi-mehendi,Haldi / Mehendi,हल्दी / मेहंदी,Day 1,पहला दिन,2026-12-05,5 December 2026,५ दिसंबर २०२६,Saturday,शनिवार,7:00 PM,सायं ७:०० बजे,2026-12-05T19:00:00+05:30,"Ramada, Kashi","रमाडा, काशी",,NO,lotus
+2,sangeet-ring,Sangeet / Ring Ceremony,संगीत / रिंग सेरेमनी,Day 2,दूसरा दिन,2026-12-06,6 December 2026,६ दिसंबर २०२६,Sunday,रविवार,7:00 PM,सायं ७:०० बजे,2026-12-06T19:00:00+05:30,"Ramada, Kashi","रमाडा, काशी",,NO,music
+3,baraat-pheras,Baraat Swagat & Pheras (Shubh Muhurat),बारात स्वागत एवं फेरे (शुभ मुहूर्त),Shubh Vivah,शुभ विवाह,2026-12-07,7 December 2026,७ दिसंबर २०२६,Monday,सोमवार,7:00 PM,सायं ७:०० बजे,2026-12-07T19:00:00+05:30,"Ramada, Kashi","रमाडा, काशी",Followed by Dinner & Ashirwad,YES,mandap
+4,reception,Reception,रिसेप्शन (स्वागत समारोह),Reception,स्वागत समारोह,2026-12-08,8 December 2026,८ दिसंबर २०२६,Tuesday,मंगलवार,7:00 PM,सायं ७:०० बजे,2026-12-08T19:00:00+05:30,"Ramada, Kashi","रमाडा, काशी",,NO,palace

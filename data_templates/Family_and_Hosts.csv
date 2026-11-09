@@ -1,0 +1,17 @@
+2. Family Lineage & Formal Card Wording,,,,
+Config Key,Lineage / Host Element,English Wording (en),Hindi Wording (hi),Guidance / Preservation Rules
+family.lateGrandfather,Late Grandfather Reference,Late Shri Sanjay Ji,स्वर्गीय श्री संजय जी,Preserve honorifics like Late / स्वर्गीय and Ji
+family.grandmother,Grandmother Reference,Smt. Mira Ji,श्रीमती मीरा जी,Preserve honorifics like Smt. / श्रीमती and Ji
+family.groomFather,Groom Father Name,Shri Shiv Ji,श्री शिव जी,Host father name
+family.groomMother,Groom Mother Name,Smt. Parvati Ji,श्रीमती पार्वती जी,Host mother name
+family.brideFather,Bride Father Name,Shri Devendra Ji,श्री देवेन्द्र जी,Bride side host father
+family.brideMother,Bride Mother Name,Smt. Sunanda Ji,श्रीमती सुनंदा जी,Bride side host mother
+family.groomSide.lineageBlessing,Groom-Side Lineage Blessing,"With the heavenly blessings of our late grandfather Shri Sanjay Ji and grandmother Smt. Mira Ji, and the loving guidance of our father Shri Shiv Ji and mother Smt. Parvati Ji,","स्वर्गीय पूज्य दादाजी श्री संजय जी एवं पूज्या दादीजी श्रीमती मीरा जी के पुण्य आशीर्वाद से, तथा पूज्य पिताश्री श्री शिव जी एवं पूज्या माताश्री श्रीमती पार्वती जी के स्नेहिल मार्गदर्शन में,",Appears at top of the Formal Invitation card
+family.groomSide.invitationText,Groom-Side Host Request Line,Shri Shiv Ji & Smt. Parvati Ji request the pleasure of your gracious presence and blessings on the auspicious occasion of the wedding ceremony of their beloved son,श्री शिव जी एवं श्रीमती पार्वती जी अपने सुपुत्र के पावन शुभ विवाह समारोह में आपकी सस्नेह एवं गरिमामयी उपस्थिति की सादर प्रार्थना करते हैं,Traditional wedding invitation sentence structure
+family.groomSide.conjunction,Conjunction (with / sang),with,संग,Word between couple names
+family.groomSide.spouseLineage,Spouse Lineage Line (Groom card),Daughter of Shri Devendra Ji & Smt. Sunanda Ji,सुपुत्री श्री देवेन्द्र जी एवं श्रीमती सुनंदा जी,Line under the couple names on Groom card
+family.brideSide.lineageBlessing,Bride-Side Lineage Blessing (#bride),"With the divine blessings of our elders and the grace of the Almighty, and the loving guidance of our father Shri Devendra Ji and mother Smt. Sunanda Ji,","हमारे पूज्य बड़े-बुजुर्गों के आशीर्वाद एवं ईश्वर की असीम कृपा से, तथा पूज्य पिताश्री श्री देवेन्द्र जी एवं पूज्या माताश्री श्रीमती सुनंदा जी के स्नेहिल मार्गदर्शन में,",Activated when URL has #bride
+family.brideSide.invitationText,Bride-Side Host Request Line (#bride),Shri Devendra Ji & Smt. Sunanda Ji request the pleasure of your gracious presence and blessings on the auspicious occasion of the wedding ceremony of their beloved daughter,श्री देवेन्द्र जी एवं श्रीमती सुनंदा जी अपनी सुपुत्री के पावन शुभ विवाह समारोह में आपकी सस्नेह एवं गरिमामयी उपस्थिति की सादर प्रार्थना करते हैं,Host request line for bride side
+family.brideSide.spouseLineage,Spouse Lineage Line (Bride card),Son of Shri Shiv Ji & Smt. Parvati Ji · Grandson of late Shri Sanjay Ji & Smt. Mira Ji,सुपुत्र श्री शिव जी एवं श्रीमती पार्वती जी · पौत्र स्वर्गीय श्री संजय जी एवं श्रीमती मीरा जी,Line under the couple names on Bride card
+family.closingLine,Stationery Closing Line,Awaiting your gracious presence.,आपकी गरिमामयी उपस्थिति की सस्नेह प्रतीक्षा में।,Exact formal phrase from original card
+family.complimentsLine,Best Compliments Line,With best compliments from both families.,समस्त परिजनों एवं दोनों परिवारों की ओर से सादर।,Formal sign-off line

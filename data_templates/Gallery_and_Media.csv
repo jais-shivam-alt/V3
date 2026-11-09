@@ -1,0 +1,14 @@
+5. Media Paths & Gallery Artwork Captions,,,,,,
+Item #,Asset Type,File Path (Relative to Site Root),Title / Alt (en),Title / Alt (hi),Caption (en),Caption (hi)
+1,Monogram SVG,assets/images/monogram.svg,Royal Monogram,शाही मोनोग्राम,Aarav & Ria Royal Seal,आरव व रिया शाही मुहर
+2,Favicon SVG,assets/images/favicon.svg,Browser Favicon,ब्राउज़र आइकन,A&R Tab Icon,ए एवं आर टैब आइकन
+3,Social Share Image,assets/images/og-image.png,WhatsApp Preview,व्हाट्सएप पूर्वावलोकन,Social Media Card,सोशल मीडिया कार्ड
+4,Background Audio (MP3),assets/audio/bg-music.mp3,Instrumental Audio,मांगलिक वाद्य संगीत,Indian Sitar & Tanpura Drone,सितार व तानपुरा वादन
+5,Background Audio (M4A),assets/audio/bg-music.m4a,Instrumental AAC,मांगलिक वाद्य संगीत (AAC),Apple High-Fidelity Audio,उच्च गुणवत्ता वाद्य ध्वनि
+6,Invitation Video (Optional),assets/video/invitation.mp4,Invitation Film,निमंत्रण चलचित्र,Optional Video Film,वैकल्पिक निमंत्रण वीडियो
+7,Gallery 1,assets/images/gallery/gallery-1.svg,The Auspicious Vivah Mandap,शुभ विवाह मंडप,Sacred Mandap in Kashi,काशी में पावन विवाह मंडप
+8,Gallery 2,assets/images/gallery/gallery-2.svg,Haldi & Mehendi Courtyard,हल्दी एवं मेहंदी उत्सव,Festive Marigold & Henna Courtyard,गेंदा व मेहंदी से सुसज्जित प्रांगण
+9,Gallery 3,assets/images/gallery/gallery-3.svg,Sangeet & Musical Celebration,संगीत एवं रिंग सेरेमनी,A Melody of Sitar & Shehnai,सितार व शहनाई की मंगल ध्वनि
+10,Gallery 4,assets/images/gallery/gallery-4.svg,Royal Baraat Swagat,शाही बारात स्वागत,Grand Arrival of the Baraat,शाही बारात का भव्य स्वागत
+11,Gallery 5,assets/images/gallery/gallery-5.svg,Sacred Pheras & Saptapadi,सप्तपदी एवं पवित्र फेरे,Seven Sacred Vows Around Agni,अग्नि साक्षी सात पवित्र वचन
+12,Gallery 6,assets/images/gallery/gallery-6.svg,Grand Palace Reception,राजसी स्वागत समारोह,Twilight Royal Palace Celebration,संध्याकालीन राजसी उत्सव

@@ -1,0 +1,11 @@
+1. Couple & Basic Invitation Information,,,,
+Field Key (Config Reference),Field Description,English Value (en),Hindi Value (hi),Example / Instructions
+couple.groom,Groom First Name,Aarav,आरव,First name of the groom
+couple.bride,Bride First Name,Ria,रिया,First name of the bride
+couple.city,Wedding City,Kashi,काशी,Holy city / Destination
+couple.cityFull,Full City & State,"Kashi, Uttar Pradesh","काशी, उत्तर प्रदेश",Displayed in Hero and Venue headings
+meta.weddingDates,Wedding Dates Summary,5–8 December 2026,५–८ दिसंबर २०२६,Dates shown on Gate and Hero
+meta.timezone,Timezone Identifier,Asia/Kolkata,Asia/Kolkata,Standard IANA timezone (e.g. Asia/Kolkata)
+defaultSide,Default Host Perspective,groom,groom,"""groom"" or ""bride"" (URL #bride flips to bride)"
+meta.siteTitle,Browser Title Bar Text,Aarav & Ria — Royal Shubh Vivah | Kashi,आरव एवं रिया — शुभ विवाह | काशी,SEO Title for browser tab & social sharing
+meta.canonicalUrl,Website Production URL,https://aarav-ria-vivah.com/,https://aarav-ria-vivah.com/,Deployed domain used by Share & Copy Link buttons
