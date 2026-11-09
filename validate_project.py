@@ -101,7 +101,29 @@ def run_tests():
         passed = check(f"Asset File Exists & Non-Empty: {a}", exists)
         all_passed = all_passed and passed
 
-    # 5. Check ZIP Contents
+    # 5. Verify XML Well-formedness on all SVG Assets
+    import xml.etree.ElementTree as ET
+    svgs = [
+        'assets/images/monogram.svg',
+        'assets/images/favicon.svg',
+        'assets/images/gallery/gallery-1.svg',
+        'assets/images/gallery/gallery-2.svg',
+        'assets/images/gallery/gallery-3.svg',
+        'assets/images/gallery/gallery-4.svg',
+        'assets/images/gallery/gallery-5.svg',
+        'assets/images/gallery/gallery-6.svg'
+    ]
+    for svg_path in svgs:
+        try:
+            with open(svg_path, 'r', encoding='utf-8') as f_svg:
+                ET.fromstring(f_svg.read())
+            svg_valid = True
+        except Exception:
+            svg_valid = False
+        passed = check(f"Valid XML SVG Syntax: {svg_path}", svg_valid)
+        all_passed = all_passed and passed
+
+    # 6. Check ZIP Contents
     with zipfile.ZipFile('aarav-ria-shubh-vivah.zip', 'r') as z:
         names = z.namelist()
         has_index = 'index.html' in names
