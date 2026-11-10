@@ -143,11 +143,16 @@
        OPENING EXPERIENCE — ROYAL PALACE GATE
        ========================================================================= -->
   <div id="gate" class="gate" role="dialog" aria-modal="true" aria-label="Royal Palace Gate">
-    <!-- Language Toggle on Gate -->
-    <div class="gate__lang">
-      <button type="button" class="lang-btn" data-lang-btn="en" aria-current="true">EN</button>
-      <span style="color:rgba(194,155,88,0.5); font-size:0.75rem;">/</span>
-      <button type="button" class="lang-btn" data-lang-btn="hi" aria-current="false">हिं</button>
+    <!-- Language & Theme Toggle on Gate -->
+    <div class="gate__controls">
+      <div class="gate__lang">
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-current="true">EN</button>
+        <span style="color:rgba(194,155,88,0.5); font-size:0.75rem;">/</span>
+        <button type="button" class="lang-btn" data-lang-btn="hi" aria-current="false">हिं</button>
+      </div>
+      <button type="button" class="theme-toggle-btn theme-toggle-btn--gate" data-theme-toggle aria-label="Toggle Twilight Mode" title="Toggle Twilight / Royal Night Mode">
+        <span class="theme-toggle-btn__icon">☽</span>
+      </button>
     </div>
 
     <!-- Golden Light Burst Behind Doors -->
@@ -200,14 +205,19 @@
     <div class="topbar__inner">
       <a href="#hero" class="topbar__brand">
         <svg class="topbar__monogram-icon" viewBox="0 0 100 60"><use href="#ic-lotus"></use></svg>
-        <span data-i18n="nav.brand">Aarav &amp; Ria</span>
+        <!-- <span data-i18n="nav.brand">Aarav &amp; Ria</span> -->
       </a>
 
       <div class="topbar__controls">
         <!-- Audio Controller -->
         <button type="button" class="audio-btn" id="audio-toggle" aria-pressed="true" aria-label="Pause music">
           <span class="audio-btn__icon">&#9835;</span>
-          <span class="audio-btn__text" data-i18n="nav.musicPause">Music</span>
+          <!-- <span class="audio-btn__text" data-i18n="nav.musicPause">Music</span> -->
+        </button>
+
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" data-theme-toggle aria-label="Toggle Twilight Mode" title="Toggle Twilight / Royal Night Mode">
+          <span class="theme-toggle-btn__icon">☽</span>
         </button>
 
         <!-- Language Selector -->

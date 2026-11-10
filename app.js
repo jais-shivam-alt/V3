@@ -26,6 +26,7 @@
   // Track state
   var state = {
     isGateOpen: false,
+    theme: 'light',
     audioPlaying: false,
     audioMuted: false,
     audioContext: null,
@@ -1284,6 +1285,94 @@
   }
 
   /* -------------------------------------------------------------------------
+     ROYAL TWILIGHT / NIGHT PALACE MODE CONTROLLER (Theme Management)
+     ------------------------------------------------------------------------- */
+  var THEME_STORAGE_KEY = 'shubh_vivah_theme';
+
+  function getStoredTheme() {
+    try {
+      var saved = localStorage.getItem(THEME_STORAGE_KEY);
+      if (saved === 'dark' || saved === 'light') return saved;
+    } catch (e) {
+      /* ignore storage exceptions */
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  function applyTheme(theme) {
+    state.theme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // Update <meta name="theme-color"> for mobile status bar
+    var metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', theme === 'dark' ? '#0E0A07' : '#FAF5EE');
+    }
+
+    // Update all theme toggle buttons
+    var isDark = (theme === 'dark');
+    var iconChar = isDark ? '☀' : '☽';
+    var labelKey = isDark ? 'nav.themeLight' : 'nav.themeDark';
+    var labelText = i18n ? i18n.t(labelKey) : (isDark ? 'Switch to Day Palace Mode' : 'Switch to Twilight Mode');
+
+    document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+      var iconSpan = btn.querySelector('.theme-toggle-btn__icon');
+      if (iconSpan) {
+        iconSpan.textContent = iconChar;
+      } else {
+        btn.textContent = iconChar;
+      }
+      btn.setAttribute('aria-label', labelText);
+      btn.setAttribute('title', labelText);
+    });
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') || state.theme || 'light';
+    var nextTheme = current === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+  }
+
+  function initTheme() {
+    var initialTheme = getStoredTheme();
+    applyTheme(initialTheme);
+
+    document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    });
+
+    if (window.matchMedia) {
+      try {
+        var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        var handleMediaChange = function (e) {
+          try {
+            if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+              applyTheme(e.matches ? 'dark' : 'light');
+            }
+          } catch (err) {}
+        };
+        if (typeof mediaQuery.addEventListener === 'function') {
+          mediaQuery.addEventListener('change', handleMediaChange);
+        } else if (typeof mediaQuery.addListener === 'function') {
+          mediaQuery.addListener(handleMediaChange);
+        }
+      } catch (mqErr) {}
+    }
+  }
+
+  /* -------------------------------------------------------------------------
      LANGUAGE SWITCHER & URL HASH INITIALIZATION
      ------------------------------------------------------------------------- */
   function syncLangButtons() {
@@ -1310,6 +1399,7 @@
       renderFunctions();
       renderGallery();
       renderRSVP();
+      if (state.theme) applyTheme(state.theme);
     });
   }
 
@@ -1330,6 +1420,7 @@
      ------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
     if (i18n) i18n.initLang();
+    initTheme();
     initSideFromHash();
     syncDynamicBranding();
 

@@ -13,8 +13,11 @@
       // Top Navigation
       'nav.brand': 'Aarav & Ria',
       'nav.musicPlay': 'Play music',
-      'nav.musicPause': 'Pause music',
-      'nav.musicMute': 'Mute music',
+      'nav.musicPause': 'Pause',
+      'nav.musicMute': 'Mute',
+      'nav.themeDark': 'Switch to Twilight Mode',
+      'nav.themeLight': 'Switch to Day Palace Mode',
+      'gate.themeToggle': 'Toggle Twilight Mode',
 
       // Gate
       'gate.om': 'ॐ श्री गणेशाय नमः',
@@ -93,6 +96,9 @@
       'nav.musicPlay': 'संगीत चलाएं',
       'nav.musicPause': 'संगीत रोकें',
       'nav.musicMute': 'मूक करें',
+      'nav.themeDark': 'रात्रि दर्शन (डार्क मोड)',
+      'nav.themeLight': 'दिवस दर्शन (लाइट मोड)',
+      'gate.themeToggle': 'रात्रि दर्शन',
 
       // Gate
       'gate.om': 'ॐ श्री गणेशाय नमः',

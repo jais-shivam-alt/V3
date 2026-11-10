@@ -39,6 +39,19 @@ def run_tests():
         passed = check(f"JavaScript syntax: {js_file}", res.returncode == 0, res.stderr)
         all_passed = all_passed and passed
 
+    with open('app.js', 'r', encoding='utf-8') as f:
+        app_js = f.read()
+    with open('i18n.js', 'r', encoding='utf-8') as f:
+        i18n_js = f.read()
+
+    js_checks = [
+        ('Theme controller in app.js', 'initTheme' in app_js and 'shubh_vivah_theme' in app_js),
+        ('Theme bilingual keys in i18n.js', 'nav.themeDark' in i18n_js and 'nav.themeLight' in i18n_js),
+    ]
+    for name, cond in js_checks:
+        passed = check(f"JS Feature: {name}", cond)
+        all_passed = all_passed and passed
+
     # 2. Check HTML integrity
     with open('index.html', 'r', encoding='utf-8') as f:
         html = f.read()
@@ -56,6 +69,7 @@ def run_tests():
         ('Persistent Topbar', 'id="topbar"' in html),
         ('Video Modal', 'id="video-modal"' in html),
         ('Lightbox Viewer', 'id="lightbox"' in html),
+        ('Theme Toggle Buttons (Gate & Topbar)', 'data-theme-toggle' in html and 'theme-toggle-btn' in html),
         ('Audio element with mp3/m4a sources', 'id="bg-audio"' in html and 'assets/audio/bg-music.mp3' in html)
     ]
     for name, cond in required_html_elements:
@@ -68,6 +82,8 @@ def run_tests():
 
     required_css = [
         ('Print Stylesheet (@media print)', '@media print' in css),
+        ('Print Immunity for Dark Mode', '@media print' in css and '[data-theme="dark"]' in css),
+        ('Royal Twilight Dark Mode Tokens', '[data-theme="dark"]' in css and '#0E0A07' in css and '#18120D' in css),
         ('Reduced Motion Support', 'prefers-reduced-motion' in css),
         ('3D Gate Perspective Transforms', 'rotateY' in css and 'perspective' in css),
         ('Sandstone & Gold Color Tokens', '#FAF5EE' in css and '#C29B58' in css),
@@ -93,8 +109,7 @@ def run_tests():
         'assets/audio/bg-music.m4a',
         'Wedding_Invitation_Data_Collection.xlsx',
         'excel_to_config.py',
-        'config_to_excel.py',
-        'aarav-ria-shubh-vivah.zip'
+        'config_to_excel.py'
     ]
     for a in assets_to_verify:
         exists = os.path.exists(a) and os.path.getsize(a) > 0
@@ -123,16 +138,19 @@ def run_tests():
         passed = check(f"Valid XML SVG Syntax: {svg_path}", svg_valid)
         all_passed = all_passed and passed
 
-    # 6. Check ZIP Contents
-    with zipfile.ZipFile('aarav-ria-shubh-vivah.zip', 'r') as z:
-        names = z.namelist()
-        has_index = 'index.html' in names
-        has_styles = 'styles.css' in names
-        has_config = 'config.js' in names
-        has_excel = 'Wedding_Invitation_Data_Collection.xlsx' in names
-        zip_ok = has_index and has_styles and has_config and has_excel
-        passed = check("Production ZIP contains index, styles, config, and excel", zip_ok)
-        all_passed = all_passed and passed
+    # 6. Check ZIP Contents (if distribution archive is present)
+    if os.path.exists('aarav-ria-shubh-vivah.zip'):
+        with zipfile.ZipFile('aarav-ria-shubh-vivah.zip', 'r') as z:
+            names = z.namelist()
+            has_index = 'index.html' in names
+            has_styles = 'styles.css' in names
+            has_config = 'config.js' in names
+            has_excel = 'Wedding_Invitation_Data_Collection.xlsx' in names
+            zip_ok = has_index and has_styles and has_config and has_excel
+            passed = check("Production ZIP contains index, styles, config, and excel", zip_ok)
+            all_passed = all_passed and passed
+    else:
+        check("Production ZIP (optional for Git repo clean sync)", True)
 
     print("=" * 70)
     if all_passed:

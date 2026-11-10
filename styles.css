@@ -48,6 +48,35 @@
   --ease-door: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
+/* =========================================================================
+   ROYAL TWILIGHT / NIGHT PALACE MODE (Ratri Darshan — Dark Mode)
+   Inspired by Udaipur Lake Palace & Kashi Ganga Aarti at Twilight
+   ========================================================================= */
+[data-theme="dark"] {
+  /* Midnight Palace Sandstone & Velvet */
+  --c-ivory: #0E0A07;         /* Deep Midnight Sandstone */
+  --c-champagne: #19120D;     /* Velvet Night Courtyard */
+  --c-terracotta: #D46651;    /* Luminous Terracotta Ruby */
+  --c-brass: #D9AC5E;         /* Radiant Antique Brass Gold */
+  --c-brass-light: #F2D8A2;   /* Luminous Gold Highlight */
+  --c-brass-dark: #A67D38;    /* Deep Antique Gold */
+  --c-marigold: #2A1D15;      /* Warm Sand Dune Shadow */
+  --c-marigold-gold: #E5A338; /* Glowing Diya Flame Yellow */
+  --c-espresso: #FAF5EE;      /* Luminous Warm Ivory Main Text */
+  --c-espresso-muted: #D1C2B0;/* Soft Muted Sandstone Text */
+  --c-rosewood: #1D100A;      /* Palace Gate Rosewood at Night */
+  --c-rosewood-dark: #100805;
+
+  /* Glassmorphism & Overlays */
+  --bg-glass: rgba(18, 13, 10, 0.92);
+  --bg-card: #18120D;
+  --border-gold: rgba(217, 172, 94, 0.38);
+  --border-gold-subtle: rgba(217, 172, 94, 0.18);
+  --shadow-royal: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 20px 48px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 32px rgba(217, 172, 94, 0.35);
+}
+
 /* Devanagari specific font handling */
 [data-lang="hi"] {
   --f-display: 'Noto Serif Devanagari', Georgia, serif;
@@ -245,6 +274,58 @@ button {
   box-shadow: 0 2px 8px rgba(194, 155, 88, 0.35);
 }
 
+/* Theme Toggle Button (Topbar & Gate) */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(241, 230, 214, 0.7);
+  border: 1px solid var(--border-gold);
+  color: var(--c-espresso);
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.3s var(--ease-royal), background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--c-champagne);
+  border-color: var(--c-brass);
+  transform: rotate(18deg) scale(1.08);
+  box-shadow: 0 0 12px rgba(194, 155, 88, 0.35);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.92);
+}
+
+.theme-toggle-btn__icon {
+  display: inline-block;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.theme-toggle-btn--gate {
+  width: 32px;
+  height: 32px;
+  background: rgba(46, 24, 16, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(194, 155, 88, 0.4);
+  color: var(--c-marigold);
+  font-size: 0.95rem;
+}
+
+.theme-toggle-btn--gate:hover {
+  background: rgba(70, 36, 24, 0.9);
+  border-color: var(--c-brass);
+  color: #FFF;
+}
+
 /* Bride Perspective Pill in Top Bar */
 .side-toggle-btn {
   font-size: 0.78rem;
@@ -283,17 +364,24 @@ button {
   pointer-events: none;
 }
 
-/* Gate Top Language Selector */
-.gate__lang {
+/* Gate Top Controls (Language & Theme Selector) */
+.gate__controls {
   position: absolute;
   top: max(1.2rem, env(safe-area-inset-top, 1.2rem));
   right: 1.2rem;
   z-index: 50;
   display: flex;
   align-items: center;
+  gap: 0.55rem;
+}
+
+.gate__lang {
+  display: flex;
+  align-items: center;
   gap: 0.25rem;
   background: rgba(46, 24, 16, 0.75);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 3px 6px;
   border-radius: 999px;
   border: 1px solid rgba(194, 155, 88, 0.4);
@@ -1562,6 +1650,132 @@ main {
 }
 
 /* =========================================================================
+   ROYAL TWILIGHT / DARK MODE COMPONENT OVERRIDES
+   ========================================================================= */
+[data-theme="dark"] body {
+  background-color: var(--c-ivory);
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(217, 172, 94, 0.08) 0%, transparent 65%),
+    radial-gradient(circle at 100% 100%, rgba(212, 102, 81, 0.08) 0%, transparent 50%);
+}
+
+[data-theme="dark"] .topbar {
+  background: var(--bg-glass);
+  border-bottom-color: var(--border-gold-subtle);
+}
+
+[data-theme="dark"] .audio-btn,
+[data-theme="dark"] .lang-toggle,
+[data-theme="dark"] .theme-toggle-btn {
+  background: rgba(28, 20, 15, 0.85);
+  border-color: var(--border-gold);
+  color: var(--c-espresso);
+}
+
+[data-theme="dark"] .audio-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: rgba(45, 32, 24, 0.95);
+  border-color: var(--c-brass);
+}
+
+[data-theme="dark"] .side-toggle-btn {
+  border-color: var(--border-gold);
+  color: var(--c-brass-light);
+}
+
+[data-theme="dark"] .side-toggle-btn:hover {
+  background: rgba(212, 102, 81, 0.15);
+}
+
+[data-theme="dark"] .shloka-box {
+  background: rgba(24, 18, 13, 0.88);
+  border-color: var(--border-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .card--stationery {
+  background-color: #16100C;
+  background-image: radial-gradient(circle at 50% 50%, #201711 0%, #16100C 100%);
+  border-color: var(--c-brass);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+}
+
+[data-theme="dark"] .countdown-box {
+  background: #18120D;
+  border-color: var(--c-brass);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .fn-card {
+  background: #18120D;
+  border-color: var(--border-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .fn-card:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .gallery-card {
+  background: #18120D;
+  border-color: var(--border-gold);
+}
+
+[data-theme="dark"] .gallery-card__caption {
+  background: #140E0A;
+  border-top-color: var(--border-gold-subtle);
+  color: var(--c-espresso);
+}
+
+[data-theme="dark"] .lightbox__img {
+  background: #18120D;
+  border-color: var(--c-brass);
+}
+
+[data-theme="dark"] .rsvp-wrapper {
+  background: #18120D;
+  border-color: var(--border-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .rsvp__contact {
+  background: #140E0A;
+  border-color: var(--border-gold-subtle);
+}
+
+[data-theme="dark"] .rsvp__contact:hover {
+  border-color: var(--c-brass);
+}
+
+[data-theme="dark"] .btn--primary {
+  background: var(--c-brass);
+  color: #0E0A07;
+  font-weight: 600;
+  border-color: var(--c-brass-light);
+}
+
+[data-theme="dark"] .btn--primary:hover {
+  background: var(--c-brass-light);
+  color: #0E0A07;
+}
+
+[data-theme="dark"] .btn--outline {
+  border-color: var(--c-brass);
+  color: var(--c-espresso);
+}
+
+[data-theme="dark"] .btn--outline:hover {
+  background: var(--c-brass);
+  color: #0E0A07;
+}
+
+[data-theme="dark"] .toast {
+  background: #18120D;
+  border-color: var(--c-brass);
+  color: var(--c-espresso);
+}
+
+/* =========================================================================
    RESPONSIVE REFINEMENTS ACROSS ALL DEVICES (320px - 1440px+)
    ========================================================================= */
 /* Small Mobile (<= 360px, e.g. iPhone SE 1st gen / 320px screens) */
@@ -1636,7 +1850,15 @@ main {
    Immaculate Luxury Physical Wedding Card Layout for PDF Saving
    ========================================================================= */
 @media print {
+  :root,
+  [data-theme="dark"],
+  html,
   body {
+    --c-ivory: #FFF !important;
+    --c-champagne: #F9F7F3 !important;
+    --c-espresso: #1A0D08 !important;
+    --c-espresso-muted: #4A3B32 !important;
+    --bg-card: #FFF !important;
     background: #FFF !important;
     color: #1A0D08 !important;
     font-size: 12pt;
